@@ -31,7 +31,14 @@ const AppRoutes: React.FC = () => {
           </ProtectedRoute>
         }
       />
-      <Route path="/" element={<Navigate to="/lucky-map" replace />} />
+      <Route 
+        path="/" 
+        element={
+          <ProtectedRoute>
+            <Navigate to="/lucky-map" replace />
+          </ProtectedRoute>
+        } 
+      />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

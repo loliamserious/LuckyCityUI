@@ -73,13 +73,13 @@ const Login: React.FC<{ onLogin: (token: string) => void }> = ({ onLogin }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-mystic-50 to-celestial-50 bg-mystical-pattern">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-mystic-50 to-celestial-50 bg-mystical-pattern px-4 sm:px-6 lg:px-8">
       {/* Floating stars background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(5)].map((_, i) => (
           <StarIcon
             key={i}
-            className={`absolute h-4 w-4 text-mystic-400 animate-twinkle`}
+            className={`absolute h-3 w-3 sm:h-4 sm:w-4 text-mystic-400 animate-twinkle`}
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
@@ -92,7 +92,7 @@ const Login: React.FC<{ onLogin: (token: string) => void }> = ({ onLogin }) => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-md w-full space-y-8 p-8"
+        className="max-w-md w-full space-y-6 sm:space-y-8 p-4 sm:p-8"
       >
         <div className="text-center">
           <motion.div
@@ -110,16 +110,16 @@ const Login: React.FC<{ onLogin: (token: string) => void }> = ({ onLogin }) => {
                 ease: "easeInOut"
               }}
             >
-              <GlobeAltIcon className="h-16 w-16 text-mystic-600" />
-              <SparklesIcon className="h-8 w-8 text-celestial-400 absolute -top-2 -right-2 animate-twinkle" />
-              <SparklesIcon className="h-6 w-6 text-celestial-400 absolute bottom-0 -left-2 animate-twinkle" style={{ animationDelay: '1s' }} />
-              <StarIcon className="h-5 w-5 text-mystic-400 absolute top-1/2 -right-4 animate-twinkle" style={{ animationDelay: '1.5s' }} />
+              <GlobeAltIcon className="h-12 w-12 sm:h-16 sm:w-16 text-mystic-600" />
+              <SparklesIcon className="h-6 w-6 sm:h-8 sm:w-8 text-celestial-400 absolute -top-2 -right-2 animate-twinkle" />
+              <SparklesIcon className="h-4 w-4 sm:h-6 sm:w-6 text-celestial-400 absolute bottom-0 -left-2 animate-twinkle" style={{ animationDelay: '1s' }} />
+              <StarIcon className="h-4 w-4 sm:h-5 sm:w-5 text-mystic-400 absolute top-1/2 -right-4 animate-twinkle" style={{ animationDelay: '1.5s' }} />
             </motion.div>
             <motion.h1
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="mt-4 text-3xl font-bold"
+              className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-bold"
             >
               <span className="bg-gradient-to-r from-mystic-600 to-celestial-600 bg-clip-text text-transparent">Lucky City</span>
             </motion.h1>
@@ -128,13 +128,13 @@ const Login: React.FC<{ onLogin: (token: string) => void }> = ({ onLogin }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="mt-6 text-2xl font-bold text-mystic-900"
+            className="mt-4 sm:mt-6 text-xl sm:text-2xl font-bold text-mystic-900"
           >
             {mode === 'login' ? '✨ Welcome Back ✨' :
              mode === 'register' ? '🌟 Join the Adventure 🌟' :
              '⭐ Reset Password ⭐'}
           </motion.h2>
-          <p className="mt-2 text-sm text-mystic-600">
+          <p className="mt-2 text-sm sm:text-base text-mystic-600">
             {mode === 'login' ? 'Your magical journey awaits' :
              mode === 'register' ? 'Begin your enchanted exploration' :
              'Restore your mystical connection'}
@@ -145,7 +145,7 @@ const Login: React.FC<{ onLogin: (token: string) => void }> = ({ onLogin }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="mt-8 space-y-6 bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-mystic-100"
+          className="mt-6 sm:mt-8 space-y-4 sm:space-y-6 bg-white/80 backdrop-blur-sm p-4 sm:p-8 rounded-2xl shadow-lg border border-mystic-100"
           onSubmit={handleSubmit}
         >
           <div className="space-y-4">
@@ -155,7 +155,7 @@ const Login: React.FC<{ onLogin: (token: string) => void }> = ({ onLogin }) => {
                 <input
                   type="text"
                   required
-                  className="pl-10 w-full px-3 py-2 border border-mystic-200 rounded-xl placeholder-mystic-400 text-mystic-900 focus:outline-none focus:ring-2 focus:ring-mystic-500 focus:border-transparent transition-all"
+                  className="pl-10 w-full px-3 py-2.5 sm:py-2 border border-mystic-200 rounded-xl placeholder-mystic-400 text-mystic-900 focus:outline-none focus:ring-2 focus:ring-mystic-500 focus:border-transparent transition-all text-base sm:text-sm"
                   placeholder="Username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
@@ -169,7 +169,7 @@ const Login: React.FC<{ onLogin: (token: string) => void }> = ({ onLogin }) => {
               <input
                 type="email"
                 required
-                className="pl-10 w-full px-3 py-2 border border-mystic-200 rounded-xl placeholder-mystic-400 text-mystic-900 focus:outline-none focus:ring-2 focus:ring-mystic-500 focus:border-transparent transition-all"
+                className="pl-10 w-full px-3 py-2.5 sm:py-2 border border-mystic-200 rounded-xl placeholder-mystic-400 text-mystic-900 focus:outline-none focus:ring-2 focus:ring-mystic-500 focus:border-transparent transition-all text-base sm:text-sm"
                 placeholder="Email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -183,7 +183,7 @@ const Login: React.FC<{ onLogin: (token: string) => void }> = ({ onLogin }) => {
                 <input
                   type="password"
                   required
-                  className="pl-10 w-full px-3 py-2 border border-mystic-200 rounded-xl placeholder-mystic-400 text-mystic-900 focus:outline-none focus:ring-2 focus:ring-mystic-500 focus:border-transparent transition-all"
+                  className="pl-10 w-full px-3 py-2.5 sm:py-2 border border-mystic-200 rounded-xl placeholder-mystic-400 text-mystic-900 focus:outline-none focus:ring-2 focus:ring-mystic-500 focus:border-transparent transition-all text-base sm:text-sm"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -198,7 +198,7 @@ const Login: React.FC<{ onLogin: (token: string) => void }> = ({ onLogin }) => {
                 <input
                   type="password"
                   required
-                  className="pl-10 w-full px-3 py-2 border border-mystic-200 rounded-xl placeholder-mystic-400 text-mystic-900 focus:outline-none focus:ring-2 focus:ring-mystic-500 focus:border-transparent transition-all"
+                  className="pl-10 w-full px-3 py-2.5 sm:py-2 border border-mystic-200 rounded-xl placeholder-mystic-400 text-mystic-900 focus:outline-none focus:ring-2 focus:ring-mystic-500 focus:border-transparent transition-all text-base sm:text-sm"
                   placeholder="Confirm password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}

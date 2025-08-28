@@ -38,71 +38,93 @@ export const SelectionControl: React.FC<SelectionControlProps> = ({
 }) => {
   return (
     <motion.div 
-      className="absolute top-1/2 left-1/2 z-20"
-      initial={{ x: '-50%', y: '-50%' }}
+      className="fixed bottom-4 sm:bottom-8 left-4 right-4 sm:left-0 sm:right-0 flex"
+      style={{ 
+        zIndex: 9999,
+        justifyContent: 'center'
+      }}
+      initial={{ y: 100, opacity: 0 }}
       animate={{
-        x: '-50%',
-        y: '-50%',
+        y: showControl ? 0 : 100,
         opacity: showControl ? 1 : 0
       }}
       transition={{ duration: 0.5 }}
     >
-      <div className="flex flex-col items-center bg-white/90 backdrop-blur-sm shadow-lg rounded-2xl p-6 space-y-8">
-        <div className="text-center">
-          <h2 className="text-lg font-semibold text-mystic-700 mb-2">Find Your Lucky Cities ✨</h2>
-          <p className="text-sm text-mystic-500">Discover where your stars align</p>
+      <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 sm:w-auto max-w-md sm:max-w-none">
+        {/* Birthday Input */}
+        <div className="flex flex-col">
+          <div className="flex bg-white/90 backdrop-blur-sm rounded-xl shadow-lg" style={{ alignItems: 'center' }}>
+            <CalendarIcon className="absolute left-3 h-5 w-5 text-mystic-400 z-10" />
+            <DatePicker
+              selected={birthDate}
+              onChange={onBirthDateChange}
+              placeholderText="Select your birthday"
+              className="pl-10 h-[50px] w-[220px] px-4 border-0 rounded-xl focus:outline-none focus:ring-2 focus:ring-mystic-500 text-base bg-transparent text-center"
+              maxDate={new Date()}
+              showYearDropdown
+              dropdownMode="select"
+            />
+          </div>
+          <p className="text-xs text-white/80 mt-2 text-center">We don't store your birthday</p>
         </div>
 
-        <div className="flex flex-col space-y-6">
-          <div className="flex flex-col items-center relative mb-8">
-            <div className="flex items-center">
-              <CalendarIcon className="absolute left-3 h-5 w-5 text-mystic-400" />
-              <DatePicker
-                selected={birthDate}
-                onChange={onBirthDateChange}
-                placeholderText="Select your birthday"
-                className="pl-10 h-[42px] w-[240px] px-4 border border-mystic-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-mystic-500 focus:border-transparent text-base"
-                maxDate={new Date()}
-                showYearDropdown
-                dropdownMode="select"
-              />
-            </div>
-            <p className="absolute -bottom-6 text-xs text-mystic-400 whitespace-nowrap">We don't store your birthday</p>
-          </div>
-
-          <div className="relative h-[42px] mt-4">
+        {/* Country Select */}
+        <div className="flex flex-col items-center">
+          <div className="relative w-[220px] bg-white/90 backdrop-blur-sm rounded-xl shadow-lg flex items-center justify-center">
             <GlobeAltIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-mystic-400 z-10" />
             <Select
               value={selectedCountry}
               onChange={onCountryChange}
               options={countryOptions}
-              className="w-[240px]"
+              menuPlacement='top'
               placeholder="Select country"
               styles={{
                 control: (base) => ({
                   ...base,
-                  height: '42px',
+                  height: '50px',
                   paddingLeft: '2rem',
-                  borderColor: '#ddd6fe',
+                  border: 'none',
                   borderRadius: '0.75rem',
+                  backgroundColor: 'transparent',
+                  boxShadow: 'none',
+                  textAlign: 'center',
                   '&:hover': {
-                    borderColor: '#8b5cf6'
+                    border: 'none'
                   }
                 }),
                 valueContainer: (base) => ({
                   ...base,
-                  padding: '2px 8px'
+                  padding: '2px 8px',
+                  justifyContent: 'center'
+                }),
+                singleValue: (base) => ({
+                  ...base,
+                  textAlign: 'center'
+                }),
+                placeholder: (base) => ({
+                  ...base,
+                  textAlign: 'center'
+                }),
+                indicatorsContainer: (base) => ({
+                  ...base,
+                  paddingRight: '8px'
                 })
               }}
             />
           </div>
+        </div>
 
+        {/* Submit Button */}
+        <div className="flex flex-col items-center">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={onSubmit}
             disabled={isLoading}
-            className="w-full h-[42px] mt-2 bg-gradient-to-r from-mystic-600 to-celestial-600 text-white rounded-xl flex items-center justify-center space-x-2 hover:from-mystic-700 hover:to-celestial-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-mystic-500"
+            className="h-[50px] px-8 bg-gradient-to-r from-mystic-600 to-celestial-600 text-white rounded-xl flex space-x-2 hover:from-mystic-700 hover:to-celestial-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-mystic-500 shadow-lg backdrop-blur-sm"
+            style={{
+              alignItems: 'center'
+            }}
           >
             {isLoading ? (
               <motion.div
@@ -113,7 +135,7 @@ export const SelectionControl: React.FC<SelectionControlProps> = ({
             ) : (
               <>
                 <SparklesIcon className="h-5 w-5" />
-                <span>Find Lucky Cities</span>
+                <span className="font-medium">Find Lucky Cities</span>
               </>
             )}
           </motion.button>

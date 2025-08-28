@@ -3,16 +3,18 @@ interface PredictionRequest {
   country: string;
 }
 
-interface City {
+export type City = {
   city: string;
   rate: number;
   reason: string;
   latitude: number;
   longitude: number;
+  dominant_elements: string[];
 }
 
-interface PredictionResponse {
+export interface PredictionResponse {
   four_pillars: string;
+  elements_analysis: Record<string, number>;
   predictions: City[];
 }
 
@@ -20,13 +22,12 @@ const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
 // Common fetch options for all requests
 const fetchOptions = {
-  mode: 'cors' as RequestMode,
-  credentials: 'include' as RequestCredentials,
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
-    'Origin': 'http://localhost:3000',
+    'Origin': 'http://localhost:3000'
   },
+  credentials: 'include' as const,
 };
 
 export const predictionService = {
@@ -57,5 +58,4 @@ export const predictionService = {
   }
 };
 
-export type { City };
 export default predictionService;

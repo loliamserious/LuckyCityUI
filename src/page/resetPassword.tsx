@@ -63,13 +63,13 @@ const ResetPassword: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-moonlight-50 to-starlight-50 bg-mystical-pattern">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-moonlight-50 to-starlight-50 bg-mystical-pattern px-4 sm:px-6 lg:px-8">
       {/* Floating stars background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(5)].map((_, i) => (
           <StarIcon
             key={i}
-            className={`absolute h-4 w-4 text-starlight-400 animate-twinkle`}
+            className={`absolute h-3 w-3 sm:h-4 sm:w-4 text-starlight-400 animate-twinkle`}
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
@@ -82,7 +82,7 @@ const ResetPassword: React.FC = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-md w-full space-y-8 p-8"
+        className="max-w-md w-full space-y-6 sm:space-y-8 p-4 sm:p-8"
       >
         <div className="text-center">
           <motion.div
@@ -100,15 +100,15 @@ const ResetPassword: React.FC = () => {
                 ease: "easeInOut"
               }}
             >
-              <KeyIcon className="h-16 w-16 text-moonlight-500" />
-              <SparklesIcon className="h-8 w-8 text-stardust-400 absolute -top-2 -right-2 animate-twinkle" />
-              <SparklesIcon className="h-6 w-6 text-stardust-400 absolute bottom-0 -left-2 animate-twinkle" style={{ animationDelay: '1s' }} />
+              <KeyIcon className="h-12 w-12 sm:h-16 sm:w-16 text-moonlight-500" />
+              <SparklesIcon className="h-6 w-6 sm:h-8 sm:w-8 text-stardust-400 absolute -top-2 -right-2 animate-twinkle" />
+              <SparklesIcon className="h-4 w-4 sm:h-6 sm:w-6 text-stardust-400 absolute bottom-0 -left-2 animate-twinkle" style={{ animationDelay: '1s' }} />
             </motion.div>
             <motion.h1
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="mt-4 text-3xl font-bold"
+              className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-bold"
             >
               <span className="bg-gradient-to-r from-moonlight-500 to-starlight-500 bg-clip-text text-transparent">Reset Password</span>
             </motion.h1>
@@ -117,7 +117,7 @@ const ResetPassword: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="mt-2 text-sm text-moonlight-600"
+            className="mt-2 text-sm sm:text-base text-moonlight-600"
           >
             Create your new magical key ✨
           </motion.p>
@@ -127,7 +127,7 @@ const ResetPassword: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="mt-8 space-y-6 bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-starlight-100"
+          className="mt-6 sm:mt-8 space-y-4 sm:space-y-6 bg-white/80 backdrop-blur-sm p-4 sm:p-8 rounded-2xl shadow-lg border border-starlight-100"
           onSubmit={handleSubmit}
         >
           <div className="space-y-4">
@@ -136,7 +136,7 @@ const ResetPassword: React.FC = () => {
               <input
                 type="password"
                 required
-                className="pl-10 w-full px-3 py-2 border border-starlight-200 rounded-xl placeholder-moonlight-400 text-moonlight-900 focus:outline-none focus:ring-2 focus:ring-starlight-500 focus:border-transparent transition-all"
+                className="pl-10 w-full px-3 py-2.5 sm:py-2 border border-starlight-200 rounded-xl placeholder-moonlight-400 text-moonlight-900 focus:outline-none focus:ring-2 focus:ring-starlight-500 focus:border-transparent transition-all text-base sm:text-sm"
                 placeholder="New password"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
@@ -148,7 +148,7 @@ const ResetPassword: React.FC = () => {
               <input
                 type="password"
                 required
-                className="pl-10 w-full px-3 py-2 border border-starlight-200 rounded-xl placeholder-moonlight-400 text-moonlight-900 focus:outline-none focus:ring-2 focus:ring-starlight-500 focus:border-transparent transition-all"
+                className="pl-10 w-full px-3 py-2.5 sm:py-2 border border-starlight-200 rounded-xl placeholder-moonlight-400 text-moonlight-900 focus:outline-none focus:ring-2 focus:ring-starlight-500 focus:border-transparent transition-all text-base sm:text-sm"
                 placeholder="Confirm new password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
