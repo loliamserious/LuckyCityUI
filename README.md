@@ -1,30 +1,61 @@
-# Lucky City UI
+# ✨ Lucky City UI
 
-A modern React-based user interface for the Lucky City project.
+A mystical and enchanting React application that combines ancient Chinese astrology with modern technology to help users discover their most auspicious cities for travel, relocation, or business ventures. The app analyzes your birth date and Five Elements (Wu Xing) to provide personalized lucky city recommendations with beautiful visualizations.
 
-## Run Locally
+## 🌟 Features
 
-In the project directory, you can run:
+### 🔮 Mystical Predictions
+- **Personalized Analysis**: Input your birthday and country to receive customized lucky city predictions
+- **Five Elements Integration**: Based on traditional Chinese astrology and the Wu Xing system (Wood, Fire, Earth, Metal, Water)
+- **Four Pillars Calculation**: Generates your personal Four Pillars of Destiny (Ba Zi) chart
+- **Intelligent Scoring**: Each city receives a luck rating with detailed explanations
 
-### `npm start`
+### 🌍 Interactive Globe Visualization
+- **3D Globe Interface**: Beautiful interactive globe powered by WebGL
+- **City Markers**: Visual indicators showing your lucky cities with different colors based on luck ratings
+- **Smooth Animations**: Fluid transitions and hover effects for an enchanting user experience
+- **Country-based Navigation**: Automatic globe positioning based on selected country
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 📊 Rich Data Visualization
+- **Elements Analysis**: Interactive pie chart showing your personal element distribution
+- **City Rankings**: Sortable list of recommended cities with detailed information
+- **Responsive Design**: Optimized for desktop and mobile devices
+- **Social Sharing**: Share your lucky cities with friends on social media
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 🔐 User Authentication
+- **Secure Login/Registration**: JWT-based authentication system
+- **Password Recovery**: Email-based password reset functionality
+- **Protected Routes**: Secure access to prediction features
+- **User Profile Management**: Personalized user experience
 
-### `npm test`
+## 🛠 Technology Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend
+- **React 18** with TypeScript for type-safe development
+- **TypeScript** for static type checking
+- **Tailwind CSS** for utility-first styling
+- **React Globe.gl** for 3D globe visualization
 
-### `npm run build`
+### Additional Libraries
+- **Recharts** for data visualization
+- **React Share** for social media integration
+- **D3.js** for advanced data visualization
+- **Three.js** for 3D graphics support
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
+- Node.js (version 16 or higher)
+- npm or yarn package manager
+- Backend API server running (typically on port 8000)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Available Scripts
+
+- **`npm start`** - Runs the app in development mode with hot reload
+- **`npm test`** - Launches the test runner in interactive watch mode
+- **`npm run build`** - Builds the app for production deployment
+- **`npm run eject`** - Ejects from Create React App (one-way operation)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
