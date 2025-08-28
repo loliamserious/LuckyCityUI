@@ -20,12 +20,20 @@ export interface PredictionResponse {
 
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
+// Get dynamic origin based on current environment
+const getOrigin = () => {
+  if (typeof window !== 'undefined') {
+    return window.location.origin;
+  }
+  return process.env.REACT_APP_FRONTEND_URL || 'http://localhost:3000';
+};
+
 // Common fetch options for all requests
 const fetchOptions = {
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
-    'Origin': 'http://localhost:3000'
+    'Origin': getOrigin()
   },
   credentials: 'include' as const,
 };
